@@ -1,6 +1,6 @@
 {
    "name": "@itsliaaa/baileys",
-   "version": "0.1.1",
+   "version": "0.1.2",
    "description": "A simple fork of Baileys for WhatsApp automation",
    "main": "lib/index.js",
    "type": "module",
@@ -52,12 +52,16 @@
       "ws": "^8.19.0"
    },
    "peerDependencies": {
+      "@napi-rs/image": "~1.12.0",
       "audio-decode": "^2.2.3",
       "jimp": "^1.6.0",
       "link-preview-js": "^3.0.0",
       "sharp": "*"
    },
    "peerDependenciesMeta": {
+      "@napi-rs/image": {
+         "optional": true
+      },
       "audio-decode": {
          "optional": true
       },

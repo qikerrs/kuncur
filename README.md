@@ -10,6 +10,7 @@ A lightweight fork of Baileys with a few fixes and a small adjustment.
 - 🖼️ Fixed an issue where media could not be sent to newsletters due to an upstream issue.
 - 📁 Reintroduced `makeInMemoryStore` with a minimal ESM adaptation and small adjustments for Baileys v7.
 - 📦 Switched FFmpeg execution from `exec` to `spawn` for safer process handling.
+- 🗃️ Added `@napi-rs/image` as a supported image processing backend in `getImageProcessingLibrary()`, offering a balance between performance and compatibility.
 
 #### 📨 Message Handling & Compatibility
 - 👉🏻 Added support for sending interactive message types (button, list, interactive, template, carousel).
@@ -19,6 +20,7 @@ A lightweight fork of Baileys with a few fixes and a small adjustment.
 #### 🧩 Additional Message Options
 - 👁️ Added optional boolean flags for message handling:  
    - `ai` - AI label on message
+   - `mentionAll` - Mentions all group participants without requiring their JIDs in `mentions` or `mentionedJid`
    - `ephemeral`, `groupStatus`, `viewOnceV2`, `viewOnceV2Extension`, `interactiveAsTemplate` - Message wrappers
    - `raw` - Build your message manually **(DO NOT USE FOR EXPLOITATION)**
 
@@ -225,6 +227,17 @@ sock.sendMessage(jid, {
 sock.sendMessage(jid, {
    text: '👋🏻 Hello @628123456789',
    mentions: ['628123456789@s.whatsapp.net']
+}, {
+   quoted: message
+})
+```
+
+##### 🧑‍🧑‍🧒‍🧒 Mention All
+
+```javascript
+sock.sendMessage(jid, {
+   text: '👋🏻 Hello @all',
+   mentionAll: true
 }, {
    quoted: message
 })
